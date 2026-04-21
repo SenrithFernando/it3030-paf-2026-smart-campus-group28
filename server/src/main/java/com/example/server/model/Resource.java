@@ -28,6 +28,7 @@ public class Resource {
     private String type;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private ResourceStatus status;
 
     @Column(length = 2000) // Increased from 1000 to 2000
