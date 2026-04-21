@@ -24,12 +24,15 @@ public class Resource {
     @Column(nullable = false, length = 100)
     private String name;
 
+    @Column(nullable = false)
     private String type;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private ResourceStatus status;
 
     @Column(length = 2000) // Increased from 1000 to 2000
     private String description;
+
+    @Column(nullable = false)
+    private String location;
 }
