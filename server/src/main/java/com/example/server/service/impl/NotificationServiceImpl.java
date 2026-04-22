@@ -1,12 +1,11 @@
-package com.smartcampus.api.service.impl;
+package com.example.server.service.impl;
 
-import com.smartcampus.api.dto.response.NotificationResponse;
-import com.smartcampus.api.enums.NotificationType;
-import com.smartcampus.api.exception.ResourceNotFoundException;
-import com.smartcampus.api.exception.UnauthorizedException;
-import com.smartcampus.api.model.Notification;
-import com.smartcampus.api.repository.NotificationRepository;
-import com.smartcampus.api.service.NotificationService;
+import com.example.server.dto.response.NotificationResponse;
+import com.example.server.enums.NotificationType;
+
+import com.example.server.model.Notification;
+import com.example.server.repository.NotificationRepository;
+import com.example.server.service.NotificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -50,10 +49,10 @@ public class NotificationServiceImpl implements NotificationService {
     @Override
     public void markAsRead(String id, String userId) {
         Notification notification = notificationRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Notification not found"));
+                .orElseThrow(() -> new RuntimeException("Notification not found"));
         
         if (!notification.getUserId().equals(userId)) {
-            throw new UnauthorizedException("You do not have permission to modify this notification");
+            throw new RuntimeException("You do not have permission to modify this notification");
         }
         
         notification.setRead(true);

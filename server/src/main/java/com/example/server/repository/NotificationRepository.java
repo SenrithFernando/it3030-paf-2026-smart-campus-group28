@@ -1,6 +1,6 @@
-package com.smartcampus.api.repository;
+package com.example.server.repository;
 
-import com.smartcampus.api.model.Notification;
+import com.example.server.model.Notification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

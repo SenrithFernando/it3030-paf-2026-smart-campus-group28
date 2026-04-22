@@ -1,6 +1,6 @@
-package com.smartcampus.api.dto.response;
+package com.example.server.dto.response;
 
-import com.smartcampus.api.enums.NotificationType;
+import com.example.server.enums.NotificationType;
 import lombok.Builder;
 import lombok.Data;
 

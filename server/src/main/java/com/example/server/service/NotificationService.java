@@ -1,7 +1,7 @@
-package com.smartcampus.api.service;
+package com.example.server.service;
 
-import com.smartcampus.api.dto.response.NotificationResponse;
-import com.smartcampus.api.enums.NotificationType;
+import com.example.server.dto.response.NotificationResponse;
+import com.example.server.enums.NotificationType;
 
 import java.util.List;
 
