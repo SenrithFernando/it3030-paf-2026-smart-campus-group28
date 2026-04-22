@@ -7,7 +7,6 @@ import com.example.server.exceptions.ResourceNotFoundException;
 import com.example.server.model.Resource;
 import com.example.server.repository.ResourceRepository;
 import com.example.server.service.ResourceService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -15,10 +14,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class ResourceServiceImpl implements ResourceService {
 
     private final ResourceRepository resourceRepository;
+
+    public ResourceServiceImpl(ResourceRepository resourceRepository) {
+        this.resourceRepository = resourceRepository;
+    }
 
     @Override
     public ResourceResponse createResource(ResourceRequest request) {
@@ -46,22 +48,30 @@ public class ResourceServiceImpl implements ResourceService {
 
     @Override
     public List<ResourceResponse> getResourcesByType(String type) {
-        return List.of();
+        return resourceRepository.findByTypeContainingIgnoreCase(type).stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<ResourceResponse> getResourcesByLocation(String location) {
-        return List.of();
+        return resourceRepository.findByLocationContainingIgnoreCase(location).stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<ResourceResponse> getResourcesByStatus(ResourceStatus status) {
-        return List.of();
+        return resourceRepository.findByStatus(status).stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<ResourceResponse> getResourcesByMinCapacity(Integer capacity) {
-        return List.of();
+        return resourceRepository.findByCapacityGreaterThanEqual(capacity).stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -76,7 +86,6 @@ public class ResourceServiceImpl implements ResourceService {
         resource.setAvailabilityWindows(request.getAvailabilityWindows());
         resource.setStatus(request.getStatus());
         resource.setDescription(request.getDescription());
-        resource.setUpdatedAt(LocalDateTime.now());
 
         Resource updated = resourceRepository.save(resource);
         return mapToResponse(updated);
