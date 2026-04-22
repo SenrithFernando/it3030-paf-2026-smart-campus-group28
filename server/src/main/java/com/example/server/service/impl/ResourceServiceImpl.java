@@ -43,7 +43,7 @@ public class ResourceServiceImpl implements ResourceService {
         resourceRepository.delete(resource);
     }
 
-    
+
     @Override
     public List<ResourceResponse> getResourcesByType(String type) {
         return List.of();
