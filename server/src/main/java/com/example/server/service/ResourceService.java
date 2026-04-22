@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ResourceService {
     ResourceResponse createResource(ResourceRequest request);
-
+    ResourceResponse updateResource(String id, ResourceRequest request);
 
     List<ResourceResponse> getResourcesByType(String type);
     List<ResourceResponse> getResourcesByLocation(String location);

@@ -17,28 +17,34 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "resources", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "name", name = "uk_resource_name")
-}) // Added unique constraint
+@Table(name = "resources")
 @EntityListeners(AuditingEntityListener.class)
 public class Resource {
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(nullable = false, length = 100)
     private String name;
 
-    @Column(nullable = false)
-    private String type;
+    private String type; // e.g. LECTURE_HALL, LAB, MEETING_ROOM, EQUIPMENT
+
+    private Integer capacity;
+
+    private String location;
+
+    private String availabilityWindows; // e.g. "08:00-18:00 Weekdays"
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private ResourceStatus status;
 
-    @Column(length = 2000) // Increased from 1000 to 2000
+    @Column(length = 1000)
     private String description;
 
-    @Column(nullable = false)
-    private String location;
+    @CreatedDate
+    @Column(updatable = false)
+    private LocalDateTime createdAt;
+
+    @LastModifiedDate
+    private LocalDateTime updatedAt;
 }
