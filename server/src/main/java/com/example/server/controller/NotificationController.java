@@ -28,4 +28,12 @@ public class NotificationController {
         List<NotificationResponse> responses = notificationService.getUserNotifications(userDetails.getUser().getId());
         return ResponseEntity.ok(ApiResponse.success("Notifications fetched successfully", responses));
     }
+
+    @GetMapping("/unread")
+    @Operation(summary = "Get all unread notifications for the authenticated user")
+    public ResponseEntity<ApiResponse<List<NotificationResponse>>> getUnreadNotifications(
+            @AuthenticationPrincipal CustomUserDetails userDetails) {
+        List<NotificationResponse> responses = notificationService.getUnreadUserNotifications(userDetails.getUser().getId());
+        return ResponseEntity.ok(ApiResponse.success("Unread notifications fetched successfully", responses));
+    }
 }
