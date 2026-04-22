@@ -7,10 +7,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/resources")
@@ -27,6 +24,15 @@ public class ResourceController {
         ResourceResponse response = resourceService.createResource(request);
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(ApiResponse.success("Resource created successfully", response));
+    }
+
+    @PutMapping("/{id}")
+    //@PreAuthorize("hasRole('ADMIN')")
+    @Operation(summary = "Update an existing resource (Admin only)")
+    public ResponseEntity<ApiResponse<ResourceResponse>> updateResource(
+            @PathVariable String id, @Valid @RequestBody ResourceRequest request) {
+        ResourceResponse response = resourceService.updateResource(id, request);
+        return ResponseEntity.ok(ApiResponse.success("Resource updated successfully", response));
     }
 
     
