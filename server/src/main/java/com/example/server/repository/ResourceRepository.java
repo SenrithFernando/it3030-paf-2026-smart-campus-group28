@@ -8,5 +8,5 @@ import java.util.List;
 
 public interface ResourceRepository extends JpaRepository<Resource, String> {
     List<Resource> findByTypeContainingIgnoreCase(String type);
-
+    List<Resource> findByLocationContainingIgnoreCase(String location);
 }
