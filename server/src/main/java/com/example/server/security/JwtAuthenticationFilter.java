@@ -1,4 +1,4 @@
-package com.smartcampus.api.security;
+package com.example.server.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

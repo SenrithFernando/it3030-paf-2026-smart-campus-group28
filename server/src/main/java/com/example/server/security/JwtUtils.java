@@ -1,4 +1,4 @@
-package com.smartcampus.api.security;
+package com.example.server.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;

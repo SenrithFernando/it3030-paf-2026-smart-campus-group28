@@ -1,6 +1,6 @@
-package com.smartcampus.api.dto.request;
+package com.example.server.dto.request;
 
-import com.smartcampus.api.enums.Role;
+import com.example.server.enums.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

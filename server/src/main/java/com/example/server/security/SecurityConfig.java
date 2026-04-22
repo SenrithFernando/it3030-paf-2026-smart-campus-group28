@@ -1,4 +1,4 @@
-package com.smartcampus.api.security;
+package com.example.server.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.smartcampus.api.enums;
+package com.example.server.enums;
 
 public enum Role {
     USER,

@@ -1,6 +1,6 @@
-package com.smartcampus.api.model;
+package com.example.server.model;
 
-import com.smartcampus.api.enums.Role;
+import com.example.server.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

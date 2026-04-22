@@ -1,6 +1,6 @@
-package com.smartcampus.api.dto.response;
+package com.example.server.dto.response;
 
-import com.smartcampus.api.enums.Role;
+import com.example.server.enums.Role;
 import lombok.Builder;
 import lombok.Data;
 

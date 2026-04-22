@@ -1,15 +1,15 @@
-package com.smartcampus.api.controller;
+package com.example.server.controller;
 
-import com.smartcampus.api.dto.request.AuthRequest;
-import com.smartcampus.api.dto.request.RegisterRequest;
-import com.smartcampus.api.dto.response.ApiResponse;
-import com.smartcampus.api.dto.response.AuthResponse;
-import com.smartcampus.api.enums.Role;
-import com.smartcampus.api.exception.BadRequestException;
-import com.smartcampus.api.model.User;
-import com.smartcampus.api.repository.UserRepository;
-import com.smartcampus.api.security.CustomUserDetails;
-import com.smartcampus.api.security.JwtUtils;
+import com.example.server.dto.request.AuthRequest;
+import com.example.server.dto.request.RegisterRequest;
+import com.example.server.dto.response.ApiResponse;
+import com.example.server.dto.response.AuthResponse;
+import com.example.server.enums.Role;
+import com.example.server.exceptions.BadRequestException;
+import com.example.server.model.User;
+import com.example.server.repository.UserRepository;
+import com.example.server.security.CustomUserDetails;
+import com.example.server.security.JwtUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;

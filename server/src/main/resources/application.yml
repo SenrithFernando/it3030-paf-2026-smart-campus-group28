@@ -6,7 +6,6 @@ server:
 spring:
   application:
     name: smart-campus-api
-  data:
   datasource:
     url: jdbc:postgresql://ep-shy-pine-an34vstu.c-6.us-east-1.aws.neon.tech/neondb?sslmode=require
     username: neondb_owner

@@ -1,6 +1,6 @@
-package com.smartcampus.api.security;
+package com.example.server.security;
 
-import com.smartcampus.api.model.User;
+import com.example.server.model.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
