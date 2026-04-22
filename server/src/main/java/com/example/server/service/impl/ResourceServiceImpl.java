@@ -37,6 +37,14 @@ public class ResourceServiceImpl implements ResourceService {
     }
 
     @Override
+    public void deleteResource(String id) {
+        Resource resource = resourceRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Resource not found with id: " + id));
+        resourceRepository.delete(resource);
+    }
+
+    
+    @Override
     public List<ResourceResponse> getResourcesByType(String type) {
         return List.of();
     }
@@ -87,6 +95,7 @@ public class ResourceServiceImpl implements ResourceService {
                 .map(this::mapToResponse)
                 .collect(Collectors.toList());
     }
+
 
 
 
