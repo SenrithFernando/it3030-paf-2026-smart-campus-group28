@@ -36,4 +36,13 @@ public class NotificationController {
         List<NotificationResponse> responses = notificationService.getUnreadUserNotifications(userDetails.getUser().getId());
         return ResponseEntity.ok(ApiResponse.success("Unread notifications fetched successfully", responses));
     }
+
+    @PatchMapping("/{id}/read")
+    @Operation(summary = "Mark a specific notification as read")
+    public ResponseEntity<ApiResponse<Void>> markAsRead(
+            @PathVariable String id,
+            @AuthenticationPrincipal CustomUserDetails userDetails) {
+        notificationService.markAsRead(id, userDetails.getUser().getId());
+        return ResponseEntity.ok(ApiResponse.success("Notification marked as read", null));
+    }
 }
