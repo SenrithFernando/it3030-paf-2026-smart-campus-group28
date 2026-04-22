@@ -19,7 +19,7 @@ public class ResourceController {
 
     @PostMapping
     //@PreAuthorize("hasRole('ADMIN')")
-    @Operation(summary = "Create a new resource (Admin only)")
+    //@Operation(summary = "Create a new resource (Admin only)")
     public ResponseEntity<ApiResponse<ResourceResponse>> createResource(@Valid @RequestBody ResourceRequest request) {
         ResourceResponse response = resourceService.createResource(request);
         return ResponseEntity.status(HttpStatus.CREATED)
@@ -28,13 +28,20 @@ public class ResourceController {
 
     @PutMapping("/{id}")
     //@PreAuthorize("hasRole('ADMIN')")
-    @Operation(summary = "Update an existing resource (Admin only)")
+    //@Operation(summary = "Update an existing resource (Admin only)")
     public ResponseEntity<ApiResponse<ResourceResponse>> updateResource(
             @PathVariable String id, @Valid @RequestBody ResourceRequest request) {
         ResourceResponse response = resourceService.updateResource(id, request);
         return ResponseEntity.ok(ApiResponse.success("Resource updated successfully", response));
     }
 
-    
+    @DeleteMapping("/{id}")
+    //@PreAuthorize("hasRole('ADMIN')")
+    //@Operation(summary = "Delete a resource (Admin only)")
+    public ResponseEntity<ApiResponse<Void>> deleteResource(@PathVariable String id) {
+        resourceService.deleteResource(id);
+        return ResponseEntity.ok(ApiResponse.success("Resource deleted successfully", null));
+    }
+
 
 }
