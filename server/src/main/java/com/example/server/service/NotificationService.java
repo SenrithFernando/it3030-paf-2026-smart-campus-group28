@@ -9,4 +9,5 @@ public interface NotificationService {
     void createNotification(String userId, NotificationType type, String title, String message);
     List<NotificationResponse> getUserNotifications(String userId);
     List<NotificationResponse> getUnreadUserNotifications(String userId);
+    void markAsRead(String id, String userId);
 }
