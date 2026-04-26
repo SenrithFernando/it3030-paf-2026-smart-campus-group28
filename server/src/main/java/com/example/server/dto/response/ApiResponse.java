@@ -1,6 +1,9 @@
 package com.example.server.dto.response;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 650c335016f7e3548429766292aa416642b66368
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,15 +15,21 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+<<<<<<< HEAD
 =======
 import java.time.LocalDateTime;
 
 >>>>>>> 9b141c6bb6daedd5c421cd5613fe0411fdddf7a9
+=======
+>>>>>>> 650c335016f7e3548429766292aa416642b66368
 public class ApiResponse<T> {
     private boolean success;
     private String message;
     private T data;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 650c335016f7e3548429766292aa416642b66368
     @Builder.Default
     private LocalDateTime timestamp = LocalDateTime.now();
 
@@ -37,6 +46,7 @@ public class ApiResponse<T> {
                 .success(false)
                 .message(message)
                 .build();
+<<<<<<< HEAD
 =======
     private LocalDateTime timestamp;
 
@@ -89,5 +99,7 @@ public class ApiResponse<T> {
             return new ApiResponse<>(success, message, data, timestamp);
         }
 >>>>>>> 9b141c6bb6daedd5c421cd5613fe0411fdddf7a9
+=======
+>>>>>>> 650c335016f7e3548429766292aa416642b66368
     }
 }
